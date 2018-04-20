@@ -4,7 +4,6 @@ import com.cifnews.train.dto.PostDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -12,7 +11,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 
 
-import static org.hamcrest.Matchers.*;
 /**
  * Created by lucky on 2018/4/18.
  */
@@ -26,21 +24,21 @@ public class PostControllerTests {
 
     @Test
     public void testGetPostList() throws Exception {
-        this.webClient.get().uri("/posts").accept(MediaType.APPLICATION_JSON)
+        this.webClient.get().uri("/posts?page=0&size=6").accept(MediaType.APPLICATION_JSON)
                 .exchange()
                 .expectBodyList(PostDto.class)
-                .hasSize(10);
+                .hasSize(6);
 
     }
 
     @Test
     public void testGetPostGivenID() throws Exception {
 
-        this.webClient.get().uri("/posts/52")
+        this.webClient.get().uri("/posts/53")
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody()
-                .jsonPath("$.id",is(52));
+                .expectBody().jsonPath("$.id")
+                .isEqualTo("53");
 
     }
 }

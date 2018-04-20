@@ -23,6 +23,7 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+
     @GetMapping("/posts")
     public Flux<PostDto> getPostList(@RequestParam(defaultValue = "0") int page,
                                      @RequestParam(defaultValue = "10")  int size){
