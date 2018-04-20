@@ -60,13 +60,13 @@ public class PostServiceTests {
 
     @Test
     public void testGetPostByID(){
-         PostDto post = postService.getPostByID(51);
+         PostDto post = postService.getPostByID(52);
         assertTrue(post != null);
     }
 
     @Test
     public void testUpdatePost(){
-        PostDto postDto = postService.getPostByID(51);
+        PostDto postDto = postService.getPostByID(52);
         postDto.setAuthor("Steven");
         postDto = postService.updatePost(postDto);
         assertTrue(postDto.getAuthor().equals("Steven"));

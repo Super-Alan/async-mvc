@@ -36,7 +36,7 @@ public class PostControllerTests {
     @Test
     public void testGetPostGivenID() throws Exception {
 
-        this.webClient.get().uri("/posts/51")
+        this.webClient.get().uri("/posts/52")
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
