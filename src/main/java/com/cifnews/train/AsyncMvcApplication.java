@@ -11,6 +11,12 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class AsyncMvcApplication {
 
+
+	public static void main(String[] args) {
+		SpringApplication.run(AsyncMvcApplication.class, args);
+	}
+
+
 	@Bean
 	public ModelMapper modelMapper() {
 		ModelMapper modelMapper = new ModelMapper();
@@ -19,7 +25,4 @@ public class AsyncMvcApplication {
 		return modelMapper;
 	}
 
-	public static void main(String[] args) {
-		SpringApplication.run(AsyncMvcApplication.class, args);
-	}
 }

@@ -40,7 +40,7 @@ public class PostControllerTests {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody()
-                .jsonPath("$.id",is(51));
+                .jsonPath("$.id",is(52));
 
     }
 }
